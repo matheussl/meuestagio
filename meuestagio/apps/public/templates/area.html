@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <ol class="breadcrumb">
+      <li><a href="{% url "home" %}">Home</a></li>
+      <li class="active">{{ area.nome }}</li>
+    </ol>
+    <div class="row">
+        <div class="col-lg-12">
+
+            <h2>{{ area.nome }}</h2>
+            {% for estagio in area.estagios.all %}
+                <p><a href="{{ estagio.get_absolute_url }}"><strong>{{ estagio.titulo }}</strong> - {{ estagio.titulo_grande|truncatechars:"63" }}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

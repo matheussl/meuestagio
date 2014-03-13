@@ -1,1 +1,22 @@
-HOME
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1>Encontre um estágio!</h1>
+        <p class="lead">
+            Todos os dias novas vagas de estágio são publicadas.
+        </p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Cadastre-se</a></p>
+    </div>
+
+    <div class="row marketing">
+        {% for area in areas %}
+            <div class="col-lg-6">
+                <h4><a href="{{ area.get_absolute_url }}">{{ area.nome }}</a></h4>
+                {% for estagio in area.estagios.all %}
+                    <p><a href="{{ estagio.get_absolute_url }}">{{ estagio.titulo }}</a></p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

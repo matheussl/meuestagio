@@ -87,5 +87,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
     'apps.public.views.context_processor',
 )

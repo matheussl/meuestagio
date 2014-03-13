@@ -11,6 +11,10 @@ class Area(models.Model):
     class Meta:
         verbose_name = 'Área'
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('area', (), {'slug': self.slug})
+
     def __unicode__(self):
         return self.nome
 
@@ -35,7 +39,15 @@ class Estagio(models.Model):
 
     class Meta:
         verbose_name = 'Estágio'
+        ordering = ['-criado_em']
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('estagio', (), {'slug_area': self.area.slug, 'slug': self.slug})
 
     def __unicode__(self):
         return self.titulo
+
+    def titulo_grande(self):
+        return '%s - %s' % (self.titulo, self.descricao)
 
