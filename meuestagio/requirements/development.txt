@@ -1,0 +1,4 @@
+-r production.txt
+Fabric==1.8.0
+Jinja2==2.7.1
+django-fab-deploy==0.7.5
