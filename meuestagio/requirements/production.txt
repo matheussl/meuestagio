@@ -5,3 +5,4 @@ South==0.8.4
 distribute==0.6.34
 djangorestframework==2.3.13
 gunicorn==18.0
+django-compressor==1.3

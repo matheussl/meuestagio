@@ -1,3 +1,5 @@
+{% load compress %}
+
 {% url "home" as home %}
 {% url "sobre" as sobre %}
 {% url "contato" as contato %}
@@ -17,8 +19,10 @@
     <title>{% block title %}Meu Estágio{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet">
+    {% compress css %}
+      <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet">
+    {% endcompress %}
 
     <!-- page styles -->
     {% block styles %}{% endblock %}

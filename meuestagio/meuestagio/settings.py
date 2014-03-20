@@ -40,6 +40,7 @@ INSTALLED_APPS = (
 
     # third part
     'gunicorn',
+    'compressor',
 
     # my apps
     'apps.public',
@@ -95,6 +96,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
     'apps.public.views.context_processor',
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 LOGGING = {
