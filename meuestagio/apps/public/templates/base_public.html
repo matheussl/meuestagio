@@ -63,6 +63,8 @@
                   <li class="dropdown-header">Suporte</li>
                   <li><a href="#">Reportar problema</a></li>
                   <li><a href="#">Envie uma sugestão</a></li>
+                  <li class="dropdown-header"></li>
+                  <li><a href="{% url 'logout' %}?next={{ request.path }}">Sair</a></li>
                 </ul>
               </li>
             {% endif %}

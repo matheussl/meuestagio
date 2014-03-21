@@ -7,12 +7,14 @@
         <p class="lead">
             Todos os dias novas vagas de estágio são publicadas.
         </p>
-        <p>
-            <a class="btn btn-xlarge btn-facebook" href="{% provider_login_url "facebook" method="oauth2" next=request.path %}" role="button">
-                <i class="fa fa-facebook fa-lg"></i>
-                &nbsp;|&nbsp; Logar com Facebook
-            </a>
-        </p>
+        {% if not request.user.is_authenticated %}
+            <p>
+                <a class="btn btn-xlarge btn-facebook" href="{% provider_login_url "facebook" method="oauth2" next=request.path %}" role="button">
+                    <i class="fa fa-facebook fa-lg"></i>
+                    &nbsp;|&nbsp; Logar com Facebook
+                </a>
+            </p>
+        {% endif %}
     </div>
 
     <div class="row marketing">
