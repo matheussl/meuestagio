@@ -20,7 +20,9 @@
 
     <!-- Bootstrap core CSS -->
     {% compress css %}
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
       <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-social-buttons.css" rel="stylesheet">
       <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet">
     {% endcompress %}
 
@@ -50,7 +52,22 @@
             <li {% if request.path == contato %}class="active" {% endif %}>
               <a href="#">Contato</a>
             </li>
+            {% if request.user.is_authenticated %}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meu Estágio <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Editar perfil</a></li>
+                  <li><a href="#">Vagas por e-mail</a></li>
+                  <li><a href="#">Convidar amigos</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Suporte</li>
+                  <li><a href="#">Reportar problema</a></li>
+                  <li><a href="#">Envie uma sugestão</a></li>
+                </ul>
+              </li>
+            {% endif %}
           </ul>
+
           <h3 class="text-muted"><a href="{{ home }}">MeuEstagio.com</a></h3>
         </div>
       {% endblock %}
@@ -69,5 +86,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
